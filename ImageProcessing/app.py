@@ -115,7 +115,7 @@ if page == "Enhance Image":
     if uploaded_file is not None:
         file_bytes = np.frombuffer(uploaded_file.read(), np.uint8)
         image = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
-       st.image(cv2.cvtColor(image, cv2.COLOR_BGR2RGB), caption="Original Image", use_container_width=True)
+    st.image(cv2.cvtColor(image, cv2.COLOR_BGR2RGB), caption="Original Image", use_container_width=True)
         original_image = image.copy()
 
         enhancement_type = st.sidebar.selectbox(
