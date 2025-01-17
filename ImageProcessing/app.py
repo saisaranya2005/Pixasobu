@@ -115,7 +115,7 @@ if page == "Enhance Image":
     if uploaded_file is not None:
         file_bytes = np.frombuffer(uploaded_file.read(), np.uint8)
         image = cv2.imdecode(file_bytes, cv2.IMREAD_COLOR)
-        st.image(cv2.cvtColor(image, cv2.COLOR_BGR2RGB), caption="Original Image", use_column_width=True)
+       st.image(cv2.cvtColor(image, cv2.COLOR_BGR2RGB), caption="Original Image", use_container_width=True)
         original_image = image.copy()
 
         enhancement_type = st.sidebar.selectbox(
@@ -157,7 +157,7 @@ if page == "Enhance Image":
         elif enhancement_type == "Sobel Edge Detection":
             result = sobel_edge_detection(original_image)
 
-        st.image(cv2.cvtColor(result, cv2.COLOR_BGR2RGB), caption="Enhanced Image", use_column_width=True)
+       st.image(cv2.cvtColor(result, cv2.COLOR_BGR2RGB), caption="Enhanced Image", use_container_width=True)
 
         result_download = cv2.imencode('.jpg', result)[1].tobytes()
         st.download_button(
